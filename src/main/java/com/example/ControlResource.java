@@ -50,6 +50,7 @@ public class ControlResource {
     @GET
     public String hello(@QueryParam("requestCount") @DefaultValue("100") int requestCount) {
         for (int i = 0; i < requestCount; i++) {
+            // mstodo async so that calls happen in parallel
             client.get();
         }
         return "All done!";

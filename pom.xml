@@ -41,9 +41,14 @@
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-resteasy-reactive</artifactId>
     </dependency>
-    <dependency>
+    <!--<dependency>
       <groupId>io.smallrye.stork</groupId>
       <artifactId>smallrye-stork-load-balancer-round-robin</artifactId>
+      <version>1.0.0.Beta1</version>
+    </dependency>-->
+    <dependency>
+      <groupId>io.smallrye.stork</groupId>
+      <artifactId>smallrye-stork-load-balancer-response-time</artifactId>
       <version>1.0.0.Beta1</version>
     </dependency>
     <dependency>
