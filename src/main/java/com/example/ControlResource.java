@@ -1,6 +1,7 @@
 package com.example;
 
 import org.eclipse.microprofile.rest.client.inject.RestClient;
+import org.jboss.logging.Logger;
 
 import javax.annotation.PostConstruct;
 import javax.ws.rs.DefaultValue;
@@ -11,6 +12,8 @@ import javax.ws.rs.QueryParam;
 
 @Path("/")
 public class ControlResource {
+
+    private static final Logger log = Logger.getLogger(ControlResource.class);
 
     volatile Status status = Status.STOPPED;
 
@@ -30,7 +33,11 @@ public class ControlResource {
                         }
                     }
                     Thread.sleep(50L);
-                    client.get();
+                    try {
+                        client.get();
+                    } catch (Exception any) {
+                        log.error("Failed to connect to the remote service", any);
+                    }
                 }
             } catch (InterruptedException e) {
                 e.printStackTrace();
