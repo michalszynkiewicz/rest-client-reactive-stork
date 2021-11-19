@@ -7,7 +7,7 @@ import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 
 @Path("/test")
-@RegisterRestClient(baseUri = "stork://my-service")
+@RegisterRestClient(baseUri = "stork://rest-service")
 public interface Client {
     @GET
     @Path("/")
