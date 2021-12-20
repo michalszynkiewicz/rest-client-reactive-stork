@@ -17,7 +17,7 @@ subjects:
     # Reference to upper's `metadata.name`
     name: default
     # Reference to upper's `metadata.namespace`
-    namespace: stork
+    namespace: stork-demo
 roleRef:
   kind: ClusterRole
   name: cluster-admin
