@@ -14,12 +14,11 @@ io.fabric8.kubernetes.client.KubernetesClientException: Failure executing: GET a
 
 ```
 To solve this error:
-- Modify the namespace in the [infrastructure/fabric8-rbac.yaml](infrastructure/fabric8-rbac.yaml) file
+- Modify the namespace in the [infrastructure/fabric8-rbac.yaml](infrastructure/clusterrolebinding.yaml) file
 - Run the following commands:
 
 ```shell
-kubectl apply -f infrastructure/clusterrole.yaml
-kubectl apply -f infrastructure/fabric8-rbac.yaml
+kubectl apply -f infrastructure/clusterrole-endpoints-reader.yaml
+kubectl apply -f infrastructure/clusterrolebinding.yaml
 ```
-
 
