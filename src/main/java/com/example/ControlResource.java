@@ -37,7 +37,7 @@ public class ControlResource {
                     }
                     Thread.sleep(50L);
                     try {
-                        client.get().onFailure().invoke(e -> log.error("Failed to connect to the remot service", e))
+                        client.get().onFailure().invoke(e -> log.error("Failed to connect to the remote service", e))
                                 .subscribe().with(log::info);
                     } catch (Exception any) {
                         log.error("Failed to connect to the remote service", any);

@@ -4,5 +4,5 @@ metadata:
   name: endpoints-reader
 rules:
 - apiGroups: [""] # "" indicates the core API group
-  resources: ["endpoints"]
-  verbs: ["get", "watch", "list"]
+  resources: ["endpoints", "pods"]
+  verbs: ["get", "list"]
