@@ -28,7 +28,7 @@ public class LabelLoadBalancer implements LoadBalancer {
 //        };
 //    }
 
-    protected LabelLoadBalancer(String label) {
+    public LabelLoadBalancer(String label) {
         this.label=label;
     }
 

@@ -13,7 +13,6 @@ import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import java.net.URI;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -22,12 +21,12 @@ import java.util.stream.Collectors;
 public class SimpleServiceDiscovery implements ServiceDiscovery {
 
     private final String url;
-    private final String serviceName;
+    private final String service;
 
 
     public SimpleServiceDiscovery(SimpleServiceDiscoveryProviderConfiguration configuration) {
         this.url = configuration.getUrl();
-        this.serviceName =configuration.getServiceName();
+        this.service =configuration.getService();
     }
 
 
@@ -73,7 +72,7 @@ public class SimpleServiceDiscovery implements ServiceDiscovery {
     public Uni<List<ServiceInstance>> getServiceInstances() {
         Client discoveryClient = RestClientBuilder.newBuilder().baseUri(URI.create(this.url))
                 .build(Client.class);
-        return discoveryClient.getServices(this.serviceName)
+        return discoveryClient.getServices(this.service)
                 .map(serviceDtos -> serviceDtos.stream().map(dto -> toStorkServiceInstance(dto)).collect(Collectors.toList()));
     }
 

@@ -10,8 +10,8 @@ import io.smallrye.stork.spi.StorkInfrastructure;
 @ServiceDiscoveryType("simple")
 @ServiceDiscoveryAttribute(name = "url",
         description = "Host name of the service discovery server.", required = true)
-@ServiceDiscoveryAttribute(name = "serviceName",
-        description = "Hort of the service discovery server.", required = false)
+@ServiceDiscoveryAttribute(name = "service",
+        description = "Host of the service discovery server.", required = false)
 public class SimpleServiceDiscoveryProvider
         implements ServiceDiscoveryProvider<SimpleServiceDiscoveryProviderConfiguration> {
 
