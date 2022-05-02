@@ -41,11 +41,11 @@
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-resteasy-reactive</artifactId>
     </dependency>
-<!--    <dependency>-->
-<!--      <groupId>io.smallrye.stork</groupId>-->
-<!--      <artifactId>smallrye-stork-load-balancer-round-robin</artifactId>-->
-<!--      <version>1.1.0</version>-->
-<!--    </dependency>-->
+    <dependency>
+      <groupId>io.smallrye.stork</groupId>
+      <artifactId>stork-load-balancer-random</artifactId>
+      <version>1.1.0</version>
+    </dependency>
     <dependency>
       <groupId>io.smallrye.stork</groupId>
       <artifactId>stork-service-discovery-kubernetes</artifactId>
