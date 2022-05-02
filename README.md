@@ -4,6 +4,7 @@ docker login
 
 ./mvnw clean package
 
+kubectl create ns stork
 kubectl apply -f target/kubernetes/kubernetes.yml -n stork 
 
 
