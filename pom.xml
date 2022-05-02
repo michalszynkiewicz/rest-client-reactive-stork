@@ -44,24 +44,20 @@
     <dependency>
       <groupId>io.smallrye.stork</groupId>
       <artifactId>stork-load-balancer-random</artifactId>
-      <version>1.1.0</version>
     </dependency>
     <dependency>
       <groupId>io.smallrye.stork</groupId>
       <artifactId>stork-service-discovery-kubernetes</artifactId>
-      <version>1.1.0</version>
     </dependency>
     <dependency>
       <groupId>io.smallrye.stork</groupId>
       <artifactId>stork-core</artifactId>
-      <version>1.1.0</version>
     </dependency>
     <dependency>
       <groupId>io.smallrye.stork</groupId>
       <artifactId>stork-configuration-generator</artifactId>
       <scope>provided</scope>
       <!-- provided scope is sufficient for the annotation processor -->
-      <version>1.1.0</version>
     </dependency>
 
     <dependency>
