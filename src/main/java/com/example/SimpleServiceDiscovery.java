@@ -29,30 +29,6 @@ public class SimpleServiceDiscovery implements ServiceDiscovery {
         this.service =configuration.getService();
     }
 
-
-
-//    @Override
-//    public ServiceDiscovery createServiceDiscovery(ServiceDiscoveryConfig config, String serviceName, ServiceConfig serviceConfig) {
-//        String discoveryUrl = config.parameters().get("url");
-//        if (discoveryUrl == null) {
-//            throw new IllegalArgumentException("No URL provided for service discovery");
-//        }
-//        Client discoveryClient = RestClientBuilder.newBuilder().baseUri(URI.create(discoveryUrl))
-//                .build(Client.class);
-//
-//
-//        String service = config.parameters().get("service");
-//
-//        return new ServiceDiscovery() {
-//            @Override
-//            public Uni<List<ServiceInstance>> getServiceInstances() {
-//
-//                return discoveryClient.getServices(service)
-//                        .map(serviceDtos -> serviceDtos.stream().map(dto -> toStorkServiceInstance(dto)).collect(Collectors.toList()));
-//            }
-//        };
-//    }
-
     private ServiceInstance toStorkServiceInstance(ServiceDto serviceDto) {
         URI uri = URI.create(serviceDto.url);
         boolean isSecure = uri.getScheme().endsWith("s");
