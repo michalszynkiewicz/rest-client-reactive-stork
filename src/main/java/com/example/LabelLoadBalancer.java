@@ -1,33 +1,29 @@
 package com.example;
 
-import io.smallrye.stork.LoadBalancer;
-import io.smallrye.stork.ServiceDiscovery;
-import io.smallrye.stork.ServiceInstance;
-import io.smallrye.stork.config.LoadBalancerConfig;
+import io.smallrye.stork.api.LoadBalancer;
+import io.smallrye.stork.api.ServiceDiscovery;
+import io.smallrye.stork.api.ServiceInstance;
+import io.smallrye.stork.api.config.LoadBalancerConfig;
 import io.smallrye.stork.spi.LoadBalancerProvider;
 
 import java.util.Collection;
 
-public class LabelLoadBalancer implements LoadBalancerProvider {
-    @Override
-    public LoadBalancer createLoadBalancer(LoadBalancerConfig config, ServiceDiscovery serviceDiscovery) {
+public class LabelLoadBalancer implements LoadBalancer {
 
-        String label = config.parameters().get("label");
-        if (label == null) {
-            throw new IllegalArgumentException("Label based load balancer requires label to be configured");
-        }
+    private final String label;
 
-        return new LoadBalancer() {
-            @Override
-            public ServiceInstance selectServiceInstance(Collection<ServiceInstance> serviceInstances) {
-                return serviceInstances.stream().filter(i -> i.getLabels().containsKey(label))
-                        .findFirst().orElseThrow(() -> new IllegalStateException("No instances found for label " + label));
-            }
-        };
+    public LabelLoadBalancer(String label) {
+        this.label=label;
     }
 
     @Override
-    public String type() {
-        return "label";
+    public ServiceInstance selectServiceInstance(Collection<ServiceInstance> serviceInstances) {
+        return serviceInstances.stream().filter(i -> i.getLabels().containsKey(label))
+                .findFirst().orElseThrow(() -> new IllegalStateException("No instances found for label " + label));
+    }
+
+    @Override
+    public boolean requiresStrictRecording() {
+        return false;
     }
 }
